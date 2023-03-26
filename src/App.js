@@ -1,45 +1,149 @@
-function App() {
+import { UncontrolledModal } from "./UncontrolledModal";
+import { ControlledModal } from "./ControlledModal";
+import { useState } from "react";
+import { UncontrolledForm } from "./UncontrolledForm";
+import { ControlledForm } from "./ControlledForm";
+import { UncontrolledOnboardingFlow } from "./UncontrolledOnboardingFlow";
+import { ControlledOnboardingFlow } from "./ControlledOnboardingFlow";
+
+const OnboardingStepOne = ({ goToNextStep }) => {
+  const [ name, setName ] = useState("");
   return (
     <>
-      <header className="header">
-        <h1>hello 👋</h1>
-      </header>
-      <article className="description">
-        <h2 className="description__heading">here's how this works ⚠️</h2>
-        <p className="description__how-it-works">
-          In this repo, you'll have to navigate between branches. Each branch of this repo corresponds to a common design pattern, based on the sections of <a href="https://www.linkedin.com/in/shaun-wassell/">Shaun Wassell</a>'s <a href="https://www.linkedin.com/learning/react-design-patterns">React: Design Patterns course</a>. 
-        </p>
-        <section className="description__instructions">
-          <p>
-            With the project running locally, switch branches to see more in-depth examples of each design pattern.
-          </p>
-          <ul className="description__list">
-            <li><code>cmp--layouts</code></li>
-            <li><code>cmp--containers</code></li>
-            <li><code>cmp--controlled-vs-uncontrolled</code></li>
-            <li><code>cmp--higher-order-components</code></li>
-            <li><code>cmp--custom-hooks</code></li>
-            <li><code>cmp--functional-design-patterns</code></li>
-          </ul>
-        </section>
-        <p>Each branch will then have a new README that has my understanding of each pattern.</p>
-      </article>
-      <article className="context">
-        <h2 className="context__heading">why this repo exists ❓</h2>
-        <p className="context__background">
-          I didn't have a great grasp of React before I got my first developer role. Thankfully, I had some unassigned time when I started, so I decided I would try to bolster my React understanding. This course was really helpful for me in understanding how to break down components, how to get them to interact in more predictable ways, how data flows between components, and overall helped me see an application in a different light. 
-        </p>
-      </article>
-      
-      <article className="cta">
-        <h2 className="cta__heading">keep learning! 🤓</h2>
-        <p className="cta__good-luck">
-          This repo is not <span className="cta__span">everything</span> on design patterns or React. But after going through Shaun's course, I felt like I had learned a lot, and felt myself looking at projects a little differently! As a self-taught dev, I want to share what helped me make the connections for others trying to do the same thing.
-        </p>
-      </article>
+      <h1>Step 1</h1>
+      <input type="text" value={name} placeholder="Name" onChange={(e) => setName(e.target.value)}/>
+      <button onClick={() => goToNextStep({name})}>Next Step</button>
     </>
   )
 }
 
-export default App;
+const OnboardingStepTwo = ({ goToNextStep }) => {
+  const [ age, setAge] = useState("");
+  return (
+    <>
+      <h1>Step 2</h1>
+      <input type="text" value={age} placeholder="Age" onChange={(e) => setAge(e.target.value)}/>
+      <button onClick={() => goToNextStep({age})}>Next Step</button>
+    </>
+  )
+}
 
+const OnboardingStepThree = ({ goToNextStep }) => {
+  const [ email, setEmail ] = useState("");
+  return (
+    <>
+      <h1>Step 3</h1>
+      <input type="email" value={email} placeholder="Email" onChange={(e) => setEmail(e.target.value)}/>
+      <button onClick={() => goToNextStep({email})}>Next Step</button>
+    </>
+  )
+}
+
+const ControlledOnboardingStepOne = ({ goToNextStep }) => {
+  const [ name, setName ] = useState("");
+  return (
+    <>
+      <h1>Step 1</h1>
+      <input type="text" value={name} placeholder="Name" onChange={(e) => setName(e.target.value)}/>
+      <button onClick={() => goToNextStep({name})}>Next Step</button>
+    </>
+  )
+}
+
+const ControlledOnboardingStepTwo = ({ goToNextStep }) => {
+  const [ age, setAge] = useState("");
+  return (
+    <>
+      <h1>Step 2</h1>
+      <input type="text" value={age} placeholder="Age" onChange={(e) => setAge(e.target.value)}/>
+      <button onClick={() => goToNextStep({age})}>Next Step</button>
+    </>
+  )
+}
+
+const ControlledOnboardingStepThree = ({ goToNextStep }) => {
+  return (
+    <>
+      <h1>Step 3</h1>
+      <p>You'll receive a discount since you're eligible 🥳</p>
+      <button onClick={goToNextStep}>Next Step</button>
+    </>
+  )
+}
+
+
+const ControlledOnboardingStepFour = ({ children }) => {
+  const [ email, setEmail ] = useState("");
+  return (
+    <>
+      <h1>Step 4</h1>
+      <input type="email" value={email} placeholder="Email" onChange={(e) => setEmail(e.target.value)}/>
+      { children }
+    </>
+  )
+}
+
+function App() {
+  const [ showModal, setShowModal ] = useState(false);
+  const [ onboardingData, setOnboardingData ] = useState({});
+  const [ currentFlowStep, setCurrentFlowStep ] = useState(0);
+  const [ onboardingComplete, setOnboardingComplete ] = useState(false);
+
+  const onNext = (stepData) => {
+    setOnboardingData({...onboardingData, ...stepData});
+    setCurrentFlowStep(currentFlowStep + 1);
+    console.log("controlled flow data will look one step behind:", onboardingData);
+  }
+
+  return (
+    <>
+      {/* all open & close buttons for this modal are within the component itself */}
+      <UncontrolledModal>
+        <h1>This ModalBody component is the one keeping track of its showModal state.</h1>
+      </UncontrolledModal>
+
+      <button onClick={() => setShowModal(!showModal)}>
+        Open a Controlled Modal
+      </button>
+      <ControlledModal shouldShow={showModal}
+        onClose={() => setShowModal(false)}
+      >
+        <h1>This ModalBody component isn't doing anything. App.js is <i>controlling</i> the showModal state changes, and passing that state to this modal. Controlled 👍</h1>
+      </ControlledModal>
+
+      <UncontrolledForm />
+      <ControlledForm />
+
+      <UncontrolledOnboardingFlow onFinish={data => {alert("thanks 😊 you're all set!")}}>
+        <OnboardingStepOne />
+        <OnboardingStepTwo />
+        <OnboardingStepThree />
+      </UncontrolledOnboardingFlow>
+      <ControlledOnboardingFlow 
+        currentFlowStep={currentFlowStep}
+        onFinish={data => {alert("thanks 😊 you're all set!")}}
+        onNext={onNext}
+      >
+        <ControlledOnboardingStepOne />
+        <ControlledOnboardingStepTwo />
+        {(onboardingData.age >= 59) &&
+          <ControlledOnboardingStepThree />
+        }
+        <ControlledOnboardingStepFour>
+          <button onClick={() => {
+            setOnboardingComplete(true)
+            setOnboardingData({...onboardingData})
+            console.log(onboardingData)
+            }
+          }>
+            Finish
+          </button>
+        { onboardingComplete ? <span>Done! Thank you </span> : "" }
+
+        </ControlledOnboardingStepFour>
+      </ControlledOnboardingFlow>
+    </>
+  )
+}
+
+export default App

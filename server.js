@@ -32,7 +32,7 @@ let users = [{
 	hobbies: ['biology', 'medicine', 'gymnastics'],
 }];
 
-const products = [{
+let products = [{
 	id: '1234',
 	name: 'Flat-Screen TV',
 	price: '$300',
@@ -69,6 +69,15 @@ app.post('/users/:id', (req, res) => {
 	users = users.map(user => user.id === id ? updatedUser : user);
 
 	res.json(users.find(user => user.id === id));
+});
+
+app.post('/products/:id', (req, res) => {
+	const { id } = req.params;
+	const { product: updatedProduct } = req.body;
+
+	products = products.map(product => product.id === id ? updatedProduct : product);
+
+	res.json(products.find(product => product.id === id));
 });
 
 app.get('/users', (req, res) => {
