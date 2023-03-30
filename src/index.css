@@ -6,7 +6,8 @@ body {
 }
 
 h1,
-h2 {
+h2,
+h3 {
   font-family: "Noto Serif", serif;
 }
 
@@ -25,4 +26,9 @@ a:active {
 
 a:hover {
   text-decoration: underline;
+}
+
+code {
+  color: #32f0ed;
+  font-size: 1.2rem;
 }
