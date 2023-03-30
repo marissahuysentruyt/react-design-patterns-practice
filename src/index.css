@@ -1,0 +1,28 @@
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: "Open Sans", sans-serif;
+  padding: 2rem;
+}
+
+h1,
+h2 {
+  font-family: "Noto Serif", serif;
+}
+
+a {
+  color: #f542ce;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #32f0ed;
+}
+
+a:active {
+  color: #fff;
+}
+
+a:hover {
+  text-decoration: underline;
+}
