@@ -26,3 +26,47 @@ a:active {
 a:hover {
   text-decoration: underline;
 }
+
+code {
+  color: #32f0ed;
+  font-size: 1.2rem;
+}
+
+.modal-button {
+  font-family: "Noto Serif", serif;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.75rem;
+}
+
+.modal-button:hover {
+  background-color: #f542ce;
+}
+
+.error,
+.completed {
+  color: #f542ce;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+input, select {
+  display: block;
+  margin: 0.5rem 0.5rem 0.5rem 0;
+}
+
+input::placeholder {
+  text-transform: lowercase;
+  letter-spacing: 0.02em;
+}
+
+.submit-button {
+  font-family: "Noto Serif", serif;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.75rem;
+}
+
+.submit-button:hover {
+  background-color: #f542ce;
+}
