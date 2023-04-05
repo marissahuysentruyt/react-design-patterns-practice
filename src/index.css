@@ -26,3 +26,42 @@ a:active {
 a:hover {
   text-decoration: underline;
 }
+
+code {
+  color: #32f0ed;
+  font-size: 1.2rem;
+}
+
+
+.user {
+  color: #f542ce;
+}
+
+.product {
+  color: #ffcc40;
+}
+
+.user__name, 
+.product__name {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  font-size: 1.2rem;
+}
+
+label {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+button {
+  font-family: "Noto Serif", serif;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.75rem;
+  margin: 0 1rem 0 0;
+}
+
+button:hover {
+  background-color: #f542ce;
+}
