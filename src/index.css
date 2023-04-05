@@ -26,3 +26,19 @@ a:active {
 a:hover {
   text-decoration: underline;
 }
+
+code {
+  color: #32f0ed;
+  font-size: 1.2rem;
+}
+
+button {
+  font-family: "Noto Serif", serif;
+  border: none;
+  border-radius: 0.25rem;
+  margin-right: 1rem;
+}
+
+button:hover {
+  scale: 1.04;
+}
