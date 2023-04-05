@@ -26,3 +26,28 @@ a:active {
 a:hover {
   text-decoration: underline;
 }
+
+code {
+  color: #32f0ed;
+  font-size: 1.2rem;
+}
+
+
+.user {
+  color: #f542ce;
+}
+
+.product {
+  color: #ffcc40;
+}
+
+.resource {
+  color: #8dfcc7;
+}
+
+.user__name, 
+.product__name {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  font-size: 1.2rem;
+}
