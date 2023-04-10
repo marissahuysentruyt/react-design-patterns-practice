@@ -31,12 +31,12 @@ function App() {
         </p>
       </article>
       
-      <aritcle className="cta">
+      <article className="cta">
         <h2 className="cta__heading">keep learning! 🤓</h2>
         <p className="cta__good-luck">
           This repo is not <span className="cta__span">everything</span> on design patterns or React. But after going through Shaun's course, I felt like I had learned a lot, and felt myself looking at projects a little differently! As a self-taught dev, I want to share what helped me make the connections for others trying to do the same thing.
         </p>
-      </aritcle>
+      </article>
     </>
   )
 }
