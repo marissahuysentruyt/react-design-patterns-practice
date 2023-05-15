@@ -30,17 +30,16 @@ export const UncontrolledForm = () => {
         {nameLengthError && 
           <p className="error">{nameLengthError}</p>
         }
-        <label for="firstname">
+        <label htmlFor="firstname">
           <input name="firstName" type="text" ref={firstNameRef} placeholder="First Name"/>
         </label>
-        <label for="lastName">
+        <label htmlFor="lastName">
           <input name="lastName" type="text" ref={lastNameRef} placeholder="Last Name"/>
         </label>
-        <input name="lastName" type="text" ref={lastNameRef} placeholder="Last Name"/>
-        <label for="email">
+        <label htmlFor="email">
           <input name="email" type="email" ref={emailRef} placeholder="Email"/>
         </label>
-        <label for="phoneNumber">
+        <label htmlFor="phoneNumber">
           <input name="phoneNumber" type="text" ref={phoneNumberRef} placeholder="Phone Number"/>
         </label>
         <select ref={contactReasonRef}>

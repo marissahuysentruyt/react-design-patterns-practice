@@ -21,16 +21,16 @@ export const ControlledForm = () => {
       <form>
         {nameLengthError && <p className="error">{nameLengthError}</p>}
 
-        <label for="firstName">
+        <label htmlFor="firstName">
           <input name="firstName" type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder="First Name"/>
         </label>
-        <label for="lastName">
+        <label htmlFor="lastName">
           <input name="lastName" type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder="Last Name"/>
         </label>
-        <label for="email">
+        <label htmlFor="email">
           <input name="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email"/>
         </label>
-        <label for="phoneNumber">
+        <label htmlFor="phoneNumber">
           <input name="phoneNumber" type="text" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} placeholder="Phone Number"/>
         </label>
         <select value={contactReason} onChange={(e) => setContactReason(e.target.value)}>
